@@ -7,7 +7,7 @@ as
 begin
     truncate table Jobs.JobHistoryStats
 
-    insert into Jobs.JobHistoryStats (job_id, step_id, js_avg, js_stdev, js_min, js_max, js_cnt)
+    insert into Jobs.JobHistoryStats with(tablock) (job_id, step_id, js_avg, js_stdev, js_min, js_max, js_cnt)
     select
         jh.job_id
        ,jh.step_id
